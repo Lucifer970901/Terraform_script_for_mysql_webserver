@@ -29,7 +29,7 @@ resource "oci_core_instance" "public_instance" {
     }
 
   metadata = {
-    ssh_authorized_keys = file(var.ssh_public_key)
+    ssh_authorized_keys = var.ssh_public_key
     user_data  =base64encode(var.user-data)
 //#base64encode(file("./userdata/bootstrap"))
   }
