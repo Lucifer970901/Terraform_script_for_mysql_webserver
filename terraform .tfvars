@@ -5,5 +5,5 @@ tenancy_ocid = "ocid1.tenancy.oc1..aaaaaaaauwf5vnl7szsfxaq44yv6lml7dahxf72e677rt
 region = "us-ashburn-1"
 private_key_path = "~/.ssh/oci_api_key.pem"
 compartment_ocid = "ocid1.compartment.oc1..aaaaaaaaec7xg2meskc544ra3mfj5c3e3hxsfw4dtjinxinebsgs47gsy77a"
-ssh_private_key = "~/.ssh/id_rsa"
-ssh_public_key = "~/.ssh/id_rsa.pub"
+ssh_private_key = file("~/.ssh/id_rsa")
+ssh_public_key = file("~/.ssh/id_rsa.pub")
