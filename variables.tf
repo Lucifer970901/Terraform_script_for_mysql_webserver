@@ -81,7 +81,7 @@ variable "mysql_ip_address"{
 #default = "10.1.2.212"
 }
 
-variable"mysql_display_name"{
+variable "mysql_display_name"{
 #default ="MASHR_MDS"
 }
 
