@@ -65,11 +65,11 @@ variable "flex_instance_image_ocid" {
 }
 
 variable "ssh_public_key" {
-default = "~/.ssh/id_rsa.pub"
+default = var.ssh_public_key
 }
 
 variable "ssh_private_key" {
-default = "~/.ssh/id_rsa"
+default = var.ssh_private_key
 }
 
 #variable "instance_private_ip"{
