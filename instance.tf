@@ -21,7 +21,7 @@ resource "oci_core_instance" "public_instance" {
 
   source_details {
     source_type = "image"
-    source_id = var.flex_instance_image_ocid[var.region]
+    source_id = var.flex_instance_image_ocid[var.region2]
     boot_volume_size_in_gbs = "50"
 
   }
