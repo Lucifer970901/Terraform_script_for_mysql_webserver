@@ -1,9 +1,11 @@
 resource "oci_mysql_mysql_backup" "test_mysql_backup" {
+  provider       = oci.region2
   db_system_id = oci_mysql_mysql_db_system.test_mysql_backup_db_system.id
 }
 
 resource "oci_mysql_mysql_db_system" "test_mysql_backup_db_system" {
   #Required
+  provider       = oci.region2
   admin_password      = "Oracle123#"
   admin_username      = "adminUser"
   availability_domain = data.oci_identity_availability_domain.ad.name
@@ -19,6 +21,7 @@ resource "oci_mysql_mysql_db_system" "test_mysql_backup_db_system" {
 
 resource "oci_mysql_mysql_db_system" "test_mysql_db_system" {
   #Required
+  provider       = oci.region2
   compartment_id      = oci_identity_compartment.compartment.id
   admin_password      = "Oracle123#"
   admin_username      = "adminUser"
