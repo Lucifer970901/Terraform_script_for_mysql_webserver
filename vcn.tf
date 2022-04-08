@@ -1,5 +1,6 @@
 # vcn resources
 resource "oci_core_vcn" "vcn1" {
+  provider       = oci.region2
   cidr_block    = var.vcn_cidr_block
   dns_label      = "vcn"
   compartment_id = oci_identity_compartment.compartment.id
@@ -8,6 +9,7 @@ resource "oci_core_vcn" "vcn1" {
 
 // A regional subnet will not specify an Availability Domain
 resource "oci_core_subnet" "public_subnet" {
+  provider          = oci.region2
   cidr_block        = var.pub_subnet_cidr_block
   display_name      = "MASHR-Public-Subnet"
   dns_label         = "PublicSubnet"
@@ -19,6 +21,7 @@ resource "oci_core_subnet" "public_subnet" {
 }
 
 resource "oci_core_internet_gateway" "test_internet_gateway" {
+  provider       = oci.region2
   compartment_id = oci_identity_compartment.compartment.id
   display_name   = "MASHR-IGW"
   vcn_id         = oci_core_vcn.vcn1.id
@@ -26,6 +29,7 @@ resource "oci_core_internet_gateway" "test_internet_gateway" {
 
 
 resource "oci_core_route_table" "public_route_table" {
+  provider       = oci.region2
   display_name   = "MASHR-Public-Subnet-RT"
   vcn_id         = oci_core_vcn.vcn1.id
   compartment_id = oci_identity_compartment.compartment.id
@@ -37,6 +41,7 @@ resource "oci_core_route_table" "public_route_table" {
 }
 
 resource "oci_core_security_list" "public_security_list" {
+  provider       = oci.region2
   display_name   = "MASHR-Public-Subnet-SL"
   compartment_id = oci_identity_compartment.compartment.id
   vcn_id         = oci_core_vcn.vcn1.id
@@ -133,6 +138,7 @@ resource "oci_core_security_list" "public_security_list" {
 
 // An AD based subnet will supply an Availability Domain
 resource "oci_core_subnet" "private_subnet" {
+  provider       = oci.region2
   availability_domain = data.oci_identity_availability_domain.ad.name
   cidr_block          = var.pri_subnet_cidr_block
   display_name        = "MASHR-Private-Subnet"
@@ -146,6 +152,7 @@ resource "oci_core_subnet" "private_subnet" {
 }
 
 resource "oci_core_nat_gateway" "nat_gateway" {
+  provider       = oci.region2
   compartment_id = oci_identity_compartment.compartment.id
   vcn_id         = oci_core_vcn.vcn1.id
   display_name   = "nat_gateway"
@@ -153,6 +160,7 @@ resource "oci_core_nat_gateway" "nat_gateway" {
 
 
 resource "oci_core_route_table" "private_route_table" {
+  provider       = oci.region2
   compartment_id = oci_identity_compartment.compartment.id
   vcn_id         = oci_core_vcn.vcn1.id
   display_name   = "MASHR-Private-Subnet-RT"
@@ -165,6 +173,7 @@ resource "oci_core_route_table" "private_route_table" {
 }
 
 resource "oci_core_security_list" "private_security_list" {
+  provider       = oci.region2
   display_name   = "MASHR-Private-Subnet-SL"
   vcn_id         = oci_core_vcn.vcn1.id
   compartment_id = oci_identity_compartment.compartment.id
