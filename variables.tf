@@ -28,8 +28,8 @@ variable "user_ocid" {}
 variable "fingerprint" {}
 variable "private_key_path" {}
 variable "compartment_ocid" {}
-variable "region1" {}
-variable "region2" {}
+variable "region1" {default = "us-ashburn-1"}
+variable "region2" {default = "ap-mumbai-1"}
 
 # variables for vcn networking components
 variable "vcn_cidr_block"{
