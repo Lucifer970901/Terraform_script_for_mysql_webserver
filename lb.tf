@@ -1,4 +1,5 @@
 resource "oci_load_balancer" "CreateLoadBalancer" {
+  provider       = oci.region2
   shape          = var.lb_shape
   compartment_id = oci_identity_compartment.compartment.id
 
@@ -12,6 +13,7 @@ resource "oci_load_balancer" "CreateLoadBalancer" {
 }
 
 resource "oci_load_balancer_backend_set" "CreateLoadBalancerBackendSet" {
+  provider       = oci.region2
   name             = var.lb_be_name
   load_balancer_id = oci_load_balancer.CreateLoadBalancer.id
   policy           = var.lb_be_policy
@@ -29,6 +31,7 @@ resource "oci_load_balancer_backend_set" "CreateLoadBalancerBackendSet" {
 }
 
 resource "oci_load_balancer_listener" "CreateListener" {
+  provider       = oci.region2
   load_balancer_id         = oci_load_balancer.CreateLoadBalancer.id
   name                     = var.lb_listener_name
   default_backend_set_name = oci_load_balancer_backend_set.CreateLoadBalancerBackendSet.name
