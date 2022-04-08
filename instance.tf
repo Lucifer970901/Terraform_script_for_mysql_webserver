@@ -1,4 +1,5 @@
 resource "oci_core_instance" "public_instance" {
+  provider       = oci.region2
   availability_domain = data.oci_identity_availability_domain.ad.name
   compartment_id      = oci_identity_compartment.compartment.id
   display_name = var.instance_display_name
@@ -37,6 +38,7 @@ resource "oci_core_instance" "public_instance" {
 }
 
 resource "oci_core_volume" "public_instance"{
+provider       = oci.region2
 availability_domain = data.oci_identity_availability_domain.ad.name
 compartment_id = oci_identity_compartment.compartment.id
 display_name = "MASHR-APP-volume"
@@ -45,6 +47,7 @@ size_in_gbs = "50"
 
 resource "oci_core_volume_attachment" "public_instance" {
   count           = "1"
+  provider       = oci.region2
   attachment_type = "paravirtualized"
   instance_id     = oci_core_instance.public_instance.id
   volume_id       = oci_core_volume.public_instance.id
