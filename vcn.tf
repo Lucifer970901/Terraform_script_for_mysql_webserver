@@ -139,7 +139,7 @@ resource "oci_core_security_list" "public_security_list" {
 // An AD based subnet will supply an Availability Domain
 resource "oci_core_subnet" "private_subnet" {
   provider       = oci.region2
-  availability_domain = data.oci_identity_availability_domain.ad.name
+  #availability_domain = data.oci_identity_availability_domain.ad.name
   cidr_block          = var.pri_subnet_cidr_block
   display_name        = "MASHR-Private-Subnet"
   dns_label           = "PrivateSubnet"
