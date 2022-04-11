@@ -69,11 +69,11 @@ variable "instance_shape_config_memory_in_gbs" {
 variable "flex_instance_image_ocid" {
   type = map(string)
   default = {
-    #us-phoenix-1 = "ocid1.image.oc1.phx.aaaaaaaa6hooptnlbfwr5lwemqjbu3uqidntrlhnt45yihfj222zahe7p3wq"
-    #us-ashburn-1 = "ocid1.image.oc1.iad.aaaaaaaa6tp7lhyrcokdtf7vrbmxyp2pctgg4uxvt4jz4vc47qoc2ec4anha"
-    #ap-sydney-1 = "ocid1.image.oc1.ap-sydney-1.aaaaaaaarq27mn2xvjnyzcghzfcvyez7h5p4arxawy6td5iggj3nxwcmh24a"
-    #ap-melbourne-1 = "ocid1.image.oc1.ap-melbourne-1.aaaaaaaajkkoyr6fzbljbgnzqdi2mxj4clxrlhcapptot6rrpq744a6p3kjq"
-    ap-mumbai-1 = "ocid1.image.oc1.ap-mumbai-1.aaaaaaaaflxkmgrmzq7c7exj6gdwao57cp24snzzuvvm3c3bt4jlyvueyadq"
+    us-phoenix-1 = "ocid1.image.oc1.phx.aaaaaaaa6hooptnlbfwr5lwemqjbu3uqidntrlhnt45yihfj222zahe7p3wq"
+    us-ashburn-1 = "ocid1.image.oc1.iad.aaaaaaaa6tp7lhyrcokdtf7vrbmxyp2pctgg4uxvt4jz4vc47qoc2ec4anha"
+    ap-sydney-1 = "ocid1.image.oc1.ap-sydney-1.aaaaaaaarq27mn2xvjnyzcghzfcvyez7h5p4arxawy6td5iggj3nxwcmh24a"
+    ap-melbourne-1 = "ocid1.image.oc1.ap-melbourne-1.aaaaaaaajkkoyr6fzbljbgnzqdi2mxj4clxrlhcapptot6rrpq744a6p3kjq"
+    ap-mumbai-1 = "ocid1.image.oc1.ap-mumbai-1.aaaaaaaa2n5up5g47wup4avwaf4vjtfo2q5cun4zoa3tqj5oyubbsulsgnla"
   }
 }
 
