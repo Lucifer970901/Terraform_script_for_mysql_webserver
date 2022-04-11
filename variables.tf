@@ -19,6 +19,7 @@ provider "oci" {
 
 data "oci_identity_availability_domain" "ad" {
   compartment_id = var.compartment_ocid
+  provider = var.region2
   ad_number      = 1
 }
 
